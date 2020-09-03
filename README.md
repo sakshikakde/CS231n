@@ -1,3 +1,6 @@
+The course website: http://cs231n.stanford.edu/
+
+
 # CS231n brief assignment structure
 
 ## Assignment 1
