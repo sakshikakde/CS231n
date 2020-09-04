@@ -1,4 +1,4 @@
-Thank you Stanford University for providing all the course resources available online
+Thank you Stanford University for providing all the course resources online.   
 The course website: http://cs231n.stanford.edu/
 
 
