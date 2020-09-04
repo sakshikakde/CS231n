@@ -1,3 +1,4 @@
+Thank you Stanford University for providing all the course resources available online
 The course website: http://cs231n.stanford.edu/
 
 
@@ -39,4 +40,46 @@ The course website: http://cs231n.stanford.edu/
 
 
 ## Assignment 2
+
+### Fully-connected Neural Network
+1. Implement affine layer: forward and backward
+2. Implement ReLU ctivation: forward and backward
+3. Sandwich layer( Affine +  ReLU): forward and backward
+4. Loss layers: Softmax and SVM
+5. Two layer network to get atleast 50 % accuracy
+6. Fully-connected network with an arbitrary number of hidden layers.
+7. Implement fancy update rules: SGD+Momentum, RMSProp and Adam
+
+### Batch Normalization
+1. Implement Batch Normalization: forward and backward
+2. Fully Connected Nets with batch normalization
+3. Relation between batch normalization and weight initialization
+4. Relation between batch normalization and batch size
+5. Implement layer normalization: forward and backward
+6. Relation between layer normalization and batch size
+
+### Dropout 
+1. Implement Dropout: forward and backward
+2. Fully-connected nets with Dropout
+3. Comaparision of output with and without dropout
+
+### Convolutional Networks 
+1. Implement naive convolution: forward and backward
+2. Implement naive max pooling: forward and backward
+3. Pre implemented sandwich layers
+4. Implement a three-layer ConvNet: conv - relu - 2x2 max pool - affine - relu - affine - softmax
+5. Visualize Filters(learned kernals)
+6. Impement spatial batch normalization: forward and backward
+7. Impement group batch normalization: forward and backward
+
+###  PyTorch on CIFAR-10 
+1. Pytorch basic tutorial by Justin Johnson: https://github.com/jcjohnson/pytorch-examples
+2. Barebones PyTorch: Abstraction level 1
+3. PyTorch Module API: Abstraction level 2 using nn.Module
+4. PyTorch Sequential API: Abstraction level 3 using nn.Sequential
+5. CIFAR-10 open-ended challenge:     
+My model:(conv->spatial batchnorm->relu->droupout)x3 -> maxpooling -> (affine->batchnorm->relu)x2 -> affine -> scores -> nesterov momentum         
+traing accuracy:99 %, validation accuracy: 73.2 %, test accuracy = 73.5 %
+
+
 
