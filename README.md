@@ -82,5 +82,15 @@ Refer the wiki page of this repo.(https://github.com/sakshikakde/CS231n-Convolut
 My model:(conv->spatial batchnorm->relu->droupout)x3 -> maxpooling -> (affine->batchnorm->relu)x2 -> affine -> scores -> nesterov momentum         
 traing accuracy:99 %, validation accuracy: 73.2 %, test accuracy = 73.5 %
 
+## Assignment 3
 
+### Image Captioning with RNNs
+
+1. Download and load Microsoft COCO datset
+2. Vanilla RNN: step forward, step backward
+3. Vanilla RNN: forward, backward
+4. Word embedding: forward, backward
+5. Temporal Affine layer, Temporal Softmax loss
+6. Implement forward and backward pass for the model 
+7. Test
 
