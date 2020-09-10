@@ -1,6 +1,7 @@
 Thank you Stanford University for providing all the course resources online.   
 The course website: http://cs231n.stanford.edu/
-
+# Google colab with github
+Refer the wiki page of this repo.(https://github.com/sakshikakde/CS231n-Convolutional-Neural-Networks-for-Visual-Recognition-Assignments/wiki/Tools) 
 
 # CS231n brief assignment structure
 
