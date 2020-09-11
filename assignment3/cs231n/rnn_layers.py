@@ -248,7 +248,7 @@ def word_embedding_forward(x, W):
       for t in range(T):
         v = x[n,t]
         out[n,t,:] = W[v, :] 
-
+    
     cache = (x, W)
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ##############################################################################

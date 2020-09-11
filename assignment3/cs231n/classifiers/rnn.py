@@ -232,9 +232,19 @@ class CaptioningRNN(object):
         # NOTE: we are still working over minibatches in this function. Also if   #
         # you are using an LSTM, initialize the first cell state to zeros.        #
         ###########################################################################
-        # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+        # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)****
+        words  = self._start * np.ones([N,1], dtype = int)  
+        h0, _ = temporal_affine_forward(features[:, np.newaxis, :], W_proj, b_proj)
+       
+        for n in range(max_length):
+          words,_ = word_embedding_forward(words, W_embed)
+          h0,_ = rnn_step_forward(words, h0, Wx, Wh, b)
+          scores, _ = temporal_affine_forward(h0, W_vocab, b_vocab)
+          scores = scores[:,0,:]
+          words = np.argmax(scores, axis = 1)
+          captions[:,n] = words
+          words = words.reshape(-1,1)
 
-        pass
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         ############################################################################
