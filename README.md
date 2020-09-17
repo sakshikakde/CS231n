@@ -92,5 +92,17 @@ traing accuracy:99 %, validation accuracy: 73.2 %, test accuracy = 73.5 %
 4. Word embedding: forward, backward
 5. Temporal Affine layer, Temporal Softmax loss
 6. Implement forward and backward pass for the model 
-7. Test
+7. Check model
+8. Overfit RNN captioning model
+9. RNN test-time sampling
+
+### Image Captioning with LSTM
+
+1. Download and load Microsoft COCO datset
+2. LSTM: step forward, step backward
+3. LSTM: forward, backward
+4. Check model
+5. Overfit LSTM captioning model
+6. LSTM test-time sampling
+
 
