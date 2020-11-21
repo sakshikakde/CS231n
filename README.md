@@ -105,4 +105,9 @@ traing accuracy:99 %, validation accuracy: 73.2 %, test accuracy = 73.5 %
 5. Overfit LSTM captioning model
 6. LSTM test-time sampling
 
+### Network Visualization (PyTorch)
+1. Saliency Maps
+2. Fooling Images
+3. Class visualization: review
+
 
