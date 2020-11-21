@@ -33,8 +33,11 @@ def compute_saliency_maps(X, y, model):
     # the gradients with a backward pass.                                        #
     ##############################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-    pass
+    scores = model(X)
+    correct_scores = scores.gather(1, y.view(-1, 1)).squeeze()
+    correct_scores.backward(torch.ones(y.shape[0])) #backward is valid if loss is a tensor with single element
+    pixel_grad = torch.abs(X.grad)
+    saliency =  torch.max(pixel_grad, dim = 1).values
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ##############################################################################
@@ -76,7 +79,28 @@ def make_fooling_image(X, target_y, model):
     ##############################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    pass
+    iterations = 100
+    for i in range(iterations):
+      scores = model(X_fooling)
+      predicted_y = torch.argmax(scores)
+      target_scores = scores[:, target_y]
+
+      if i%1 == 0:
+        print("iteration = ", i, ", target y = ", target_y, ", predicted y = ", predicted_y.item())   
+
+      if(predicted_y == target_y):
+        print("Fooled images generated in ", i, " iterations.")
+        break
+
+      target_scores.backward()
+      dx = X_fooling.grad
+      mean = dx.mean()
+#      std_dev = dx.std()
+#      dx =  (dx - mean) / std_dev
+      dx *= learning_rate
+
+      with torch.no_grad():
+        X_fooling += dx   
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ##############################################################################
@@ -93,8 +117,15 @@ def class_visualization_update_step(img, model, target_y, l2_reg, learning_rate)
     # Be very careful about the signs of elements in your code.            #
     ########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+    img.requires_grad_()
+    scores = model(img)
+    target_score = scores[:,target_y]
+    img_star = target_score - l2_reg * torch.sum(img * img)
+    img_star.backward()
 
-    pass
+    dimg = img.grad
+    with torch.no_grad():
+      img += learning_rate * dimg
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ########################################################################
